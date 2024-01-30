@@ -106,11 +106,13 @@
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
-
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                <button type="submit">
+                                    {{ __('Log Out') }}
+                                </button>
+                                {{-- <x-jet-dropdown-link href="#"
                                          @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
-                                </x-jet-dropdown-link>
+                                </x-jet-dropdown-link> --}}
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
@@ -167,11 +169,13 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-
-                    <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                    <button type="submit">
+                        {{ __('Log Out') }}
+                    </button>
+                    {{-- <x-jet-responsive-nav-link href="#"
                                    @click.prevent="$root.submit();">
                         {{ __('Log Out') }}
-                    </x-jet-responsive-nav-link>
+                    </x-jet-responsive-nav-link> --}}
                 </form>
 
                 <!-- Team Management -->
