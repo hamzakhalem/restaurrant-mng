@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,11 @@ use App\Http\Controllers\HomeController;
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
+
+
+Route::get('/users', [AdminController::class,'index'])->name('users');
+
+
 Route::get('/redirects', [HomeController::class,'redirects']);
 
 Route::middleware([
