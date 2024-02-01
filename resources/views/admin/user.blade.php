@@ -21,11 +21,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                  </tr>
+                   
+                @foreach($users as $user)
+                     
+                    <tr>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        @if ($user->usertype == '0')
+                            <td><a href="{{ route('delete', $user->id )  }}">Delete</a></td>
+                        @else
+                            <td>Noursin</td>
+                        @endif
+                    </tr>
+
+                @endforeach
                 </tbody>
             </table>
             

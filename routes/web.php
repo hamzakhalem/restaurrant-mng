@@ -20,6 +20,8 @@ Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/users', [AdminController::class,'index'])->name('users');
 
+Route::get('/delete/{id}', [AdminController::class,'deleteUser'])->name('delete');
+
 
 Route::get('/redirects', [HomeController::class,'redirects']);
 
