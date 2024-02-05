@@ -28,7 +28,7 @@ class HomeController extends Controller
         }
         else {
             $foods = Food::all();
-        return view('home', compact('foods'));
+            return view('home', compact('foods'));
         }
 
     }
