@@ -22,9 +22,11 @@ Route::get('/users', [AdminController::class,'index'])->name('users');
 
 Route::get('/foodmenu', [AdminController::class,'foodmenu'])->name('foodmenu');
 Route::post('/addfood', [AdminController::class,'addfood'])->name('addfood');
+Route::post('/updatefood', [AdminController::class,'updatefood'])->name('updatefood');
 
 Route::get('/delete/{id}', [AdminController::class,'deleteUser'])->name('delete');
 Route::get('/deletefood/{id}', [AdminController::class,'deleteFood'])->name('deletefood');
+Route::get('/updatefoodpage/{id}', [AdminController::class,'updatefoodpage'])->name('updatefoodpage');
 
 
 Route::get('/redirects', [HomeController::class,'redirects']);

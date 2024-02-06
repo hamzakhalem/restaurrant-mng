@@ -57,7 +57,8 @@
                             <td>{{ $food->title }}</td>
                             <td>{{ $food->price }}</td>
                             <td>{{ $food->Description }}</td>
-                            <td><a href="{{ route('deletefood', $food->id )  }}">Delete</a></td>
+                            <td><a href="{{ route('deletefood', $food->id )  }}">Delete</a> <a href="{{ route('updatefoodpage', $food->id )  }}">Update</a></td>
+                           
                         </tr>
     
                     @endforeach
