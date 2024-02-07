@@ -28,6 +28,7 @@ Route::get('/delete/{id}', [AdminController::class,'deleteUser'])->name('delete'
 Route::get('/deletefood/{id}', [AdminController::class,'deleteFood'])->name('deletefood');
 Route::get('/updatefoodpage/{id}', [AdminController::class,'updatefoodpage'])->name('updatefoodpage');
 
+Route::post('/reservation', [AdminController::class,'reservation'])->name('reservation');
 
 Route::get('/redirects', [HomeController::class,'redirects']);
 

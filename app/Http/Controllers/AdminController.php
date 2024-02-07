@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Reservation;
 class AdminController extends Controller
 {
     //
@@ -66,5 +67,19 @@ class AdminController extends Controller
         $food->save();
         
         return redirect()->route('foodmenu');
+    }
+    
+    public function reservation(Request $request){
+        $resevation = new Reservation();
+        $resevation->name = $request->name;
+        $resevation->email = $request->email;
+        $resevation->guest = $request->guest;
+        $resevation->phone = $request->phone;
+        $resevation->time = $request->time;
+        $resevation->date = $request->date;
+        $resevation->message = $request->message;
+        $resevation->save();
+        
+        return redirect()->back();
     }
 }
