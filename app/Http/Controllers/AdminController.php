@@ -22,6 +22,11 @@ class AdminController extends Controller
     public function foodmenu(){
         $foods = Food::all();
         return view('admin.foodmenu', compact('foods'));
+    }
+    
+    public function reservatuionpage(){
+        $reservations = Reservation::all();
+        return view('admin.reservatuionpage', compact('reservations'));
         
     }
     

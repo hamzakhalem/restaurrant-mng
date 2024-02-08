@@ -30,7 +30,7 @@
                         @if ($user->usertype == '0')
                             <td><a href="{{ route('delete', $user->id )  }}">Delete</a></td>
                         @else
-                            <td>Noursin</td>
+                            <td></td>
                         @endif
                     </tr>
 

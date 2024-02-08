@@ -21,6 +21,7 @@ Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/users', [AdminController::class,'index'])->name('users');
 
 Route::get('/foodmenu', [AdminController::class,'foodmenu'])->name('foodmenu');
+Route::get('/reservatuionpage', [AdminController::class,'reservatuionpage'])->name('reservatuionpage');
 Route::post('/addfood', [AdminController::class,'addfood'])->name('addfood');
 Route::post('/updatefood', [AdminController::class,'updatefood'])->name('updatefood');
 
