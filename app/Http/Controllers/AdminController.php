@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
+use App\Models\FoodChef;
 class AdminController extends Controller
 {
     //
@@ -22,6 +23,11 @@ class AdminController extends Controller
     public function foodmenu(){
         $foods = Food::all();
         return view('admin.foodmenu', compact('foods'));
+    }
+
+    public function cheflist(){
+        $chefs = FoodChef::all();
+        return view('admin.cheflist', compact('chefs'));
     }
     
     public function reservatuionpage(){
@@ -45,6 +51,22 @@ class AdminController extends Controller
         $food->save();
         
         return redirect()->route('foodmenu');
+        
+    }
+    public function addchef(Request $request){
+        $chef = new FoodChef();
+        
+        $imagechef = $request->image;
+        $imageName = time() . '.' . $imagechef->getClientOriginalExtension();
+        $request->image->move('chefimages', $imageName);
+        
+        $chef->name = $request->name;
+        $chef->speciality = $request->speciality;
+        $chef->image = $imageName;
+        
+        $chef->save();
+        
+        return redirect()->back();
         
     }
     

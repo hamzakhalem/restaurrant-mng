@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Food;
+use App\Models\FoodChef;
 class HomeController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class HomeController extends Controller
     public function index()
     {
         $foods = Food::all();
-        return view('home', compact('foods'));
+        $chefs = FoodChef::all();
+        return view('home', compact('foods', 'chefs'));
     }
 
     public function redirects()
@@ -28,7 +30,8 @@ class HomeController extends Controller
         }
         else {
             $foods = Food::all();
-            return view('home', compact('foods'));
+            $chefs = FoodChef::all();
+            return view('home', compact('foods', 'chefs'));
         }
 
     }
