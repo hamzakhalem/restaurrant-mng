@@ -53,7 +53,7 @@
                             <td>{{ $chef->name }}</td>
                             <td>{{ $chef->speciality }}</td>
                             <td><img src="chefimages/{{ $chef->image  }}" alt="chefimg" srcset=""></td>
-                            {{-- <td><a href="{{ route('deletechef', $chef->id )  }}">Delete</a> <a href="{{ route('updatechefpage', $chef->id )  }}">Update</a></td> --}}
+                            <td><a href="{{ route('deletechef', $chef->id )  }}">Delete</a> <a href="{{ route('updatechefpage', $chef->id )  }}">Update</a></td>
                            
                         </tr>
     

@@ -23,10 +23,12 @@ Route::get('/users', [AdminController::class,'index'])->name('users');
 Route::get('/foodmenu', [AdminController::class,'foodmenu'])->name('foodmenu');
 
 Route::get('/cheflist', [AdminController::class,'cheflist'])->name('cheflist');
+Route::post('/addchef', [AdminController::class,'addchef'])->name('addchef');
+Route::get('/deletechef/{id}', [AdminController::class,'deletechef'])->name('deletechef');
+Route::get('/updatechefpage/{id}', [AdminController::class,'updatechefpage'])->name('updatechefpage');
 
 Route::get('/reservatuionpage', [AdminController::class,'reservatuionpage'])->name('reservatuionpage');
 Route::post('/addfood', [AdminController::class,'addfood'])->name('addfood');
-Route::post('/addchef', [AdminController::class,'addchef'])->name('addchef');
 Route::post('/updatefood', [AdminController::class,'updatefood'])->name('updatefood');
 
 Route::get('/delete/{id}', [AdminController::class,'deleteUser'])->name('delete');

@@ -75,9 +75,19 @@ class AdminController extends Controller
         return redirect()->route('foodmenu');
     }
     
+    public function deletechef($id){
+        FoodChef::find($id)->delete();
+        return redirect()->back();
+    }
+    
     public function updatefoodpage($id){
         $food = Food::find($id);
         return view('admin.updatefood', compact('food'));
+    }
+
+    public function updatechefpage($id){
+        $chef = FoodChef::find($id);
+        return view('admin.updatechefpage', compact('chef'));
     }
 
     public function updatefood(Request $request){
