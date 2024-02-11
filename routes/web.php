@@ -26,6 +26,7 @@ Route::get('/cheflist', [AdminController::class,'cheflist'])->name('cheflist');
 Route::post('/addchef', [AdminController::class,'addchef'])->name('addchef');
 Route::get('/deletechef/{id}', [AdminController::class,'deletechef'])->name('deletechef');
 Route::get('/updatechefpage/{id}', [AdminController::class,'updatechefpage'])->name('updatechefpage');
+Route::post('/updatechef', [AdminController::class,'updatechef'])->name('updatechef');
 
 Route::get('/reservatuionpage', [AdminController::class,'reservatuionpage'])->name('reservatuionpage');
 Route::post('/addfood', [AdminController::class,'addfood'])->name('addfood');

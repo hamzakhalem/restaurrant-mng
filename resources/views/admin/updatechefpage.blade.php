@@ -25,8 +25,8 @@
                     <input type="text" class="form-control" name="speciality" id='speciality' value='{{ $chef->speciality }}' required>
                 </div>
                 <div class="form-group">
-                    <label for="iamge">iamge</label>
-                    <input type="file" class="form-control" name="iamge" id='iamge' value='{{ $chef->iamge }}' required>
+                    <label for="image">image</label>
+                    <input type="file" class="form-control" name="image" id='image' value='{{ $chef->iamge }}' required>
                 </div>
                
 
