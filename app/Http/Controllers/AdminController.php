@@ -103,6 +103,8 @@ class AdminController extends Controller
         $chef->save();
         
         return redirect()->back();
+
+        
     }
 
     public function updatefood(Request $request){
