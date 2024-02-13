@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
+Route::post('/addtocart/{id}', [HomeController::class,'addtocart'])->name('addtocart');
 
 Route::get('/users', [AdminController::class,'index'])->name('users');
 
@@ -40,12 +41,13 @@ Route::post('/reservation', [AdminController::class,'reservation'])->name('reser
 
 Route::get('/redirects', [HomeController::class,'redirects']);
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
+    ])->group(function () {
+        Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });

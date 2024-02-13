@@ -21,8 +21,17 @@ class HomeController extends Controller
         return view('home', compact('foods', 'chefs'));
     }
 
-    public function redirects()
-    {
+    public function addtocart(Request $request, $id){
+        $id = Auth::id();
+
+        if($id){
+            return redirect('home');
+        }
+        else{
+            return redirect('login');
+        }
+    }
+    public function redirects(){
         $usertype = Auth::user()->usertype;
         
         if($usertype == 1){
@@ -101,4 +110,6 @@ class HomeController extends Controller
     {
         //
     }
+
+   
 }
