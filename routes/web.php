@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::post('/addtocart/{id}', [HomeController::class,'addtocart'])->name('addtocart');
+Route::post('/addtocart', [HomeController::class,'addtocart'])->name('addtocart');
 
 Route::get('/users', [AdminController::class,'index'])->name('users');
 

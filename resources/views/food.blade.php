@@ -13,8 +13,9 @@
             <div class="col-lg-12">
                 <div class="owl-menu-item owl-carousel">
                     @foreach ($foods as $food)
-                        <form action="{{ route('addtocart', $food->id) }}" method="POST">
+                        <form action="{{ route('addtocart') }}" method="POST">
                             @csrf
+                            <input type="hidden" value="{{ $food->id }}"  name="foodid"/>
                             <div class="item">
                                 <div class='card card1'>
                                     <div class="price"><h6>{{ $food->price }} $</h6></div>
@@ -26,7 +27,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="number" name="quality" id="" min="1" value="1"  style="width: 80%; margin:auto">
+                                <input type="number" name="quantity" id="" min="1" value="1"  style="width: 80%; margin:auto">
                                 <input type="submit" value="add cart" style="width: 80%; margin:auto">
                             </div>
                         </form>
