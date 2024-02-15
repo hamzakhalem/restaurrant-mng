@@ -26,6 +26,7 @@
                                             <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <input type="number" name="quantity" id="" min="1" value="1"  style="width: 80%; margin:auto">
                                 <input type="submit" value="add cart" style="width: 80%; margin:auto">
