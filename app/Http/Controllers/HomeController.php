@@ -19,7 +19,9 @@ class HomeController extends Controller
     {
         $foods = Food::all();
         $chefs = FoodChef::all();
-        return view('home', compact('foods', 'chefs'));
+        $userid = Auth::id();
+        $count = Cart::where('user_id', $userid)->count();
+        return view('home', compact('foods', 'chefs', 'count'));
     }
 
     public function addtocart(Request $request){
@@ -41,12 +43,17 @@ class HomeController extends Controller
         $usertype = Auth::user()->usertype;
         
         if($usertype == 1){
+            
             return view('admin.adminhome');
         }
         else {
             $foods = Food::all();
             $chefs = FoodChef::all();
-            return view('home', compact('foods', 'chefs'));
+            $userid = Auth::id();
+
+            $count = Cart::where('user_id', $userid)->count();
+
+            return view('home', compact('foods', 'chefs', 'count'));
         }
 
     }
