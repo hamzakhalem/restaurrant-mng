@@ -29,8 +29,14 @@ class HomeController extends Controller
         // $chefs = FoodChef::all();
         // $userid = Auth::id();
         $carts = Cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
+        $cartsid = Cart::select('*')->where('user_id', '=', $id)->get();
         $count = $carts->count();
-        return view('showcart', compact('carts', 'count'));
+        return view('showcart', compact('carts', 'cartsid', 'count'));
+    }
+    public function removeCart($id)
+    {
+        Cart::find($id)->delete();
+        return redirect()->back();
     }
 
     public function addtocart(Request $request){

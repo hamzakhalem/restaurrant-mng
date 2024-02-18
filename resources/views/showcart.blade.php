@@ -136,6 +136,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <th scope="col">Food Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Qte</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -152,10 +153,18 @@ https://templatemo.com/tm-558-klassy-cafe
                     <td>
                         {{ $cart->quantity }}
                     </td>
+                  
                    
                 </tr>
     
             @endforeach
+                @foreach ($cartsid as $cart)
+                    
+                    <td>
+                        <a href="{{ route('removeCart', $cart->id) }}"  >Remove</a>
+                    </td>
+                @endforeach
+            
             </tbody>
         </table>
         
