@@ -9,26 +9,27 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <title>Klassy Cafe - Restaurant HTML Template</title>
-<!--
-    
-TemplateMo 558 Klassy Cafe
-
-https://templatemo.com/tm-558-klassy-cafe
-
--->
+    <!--
+        
+        TemplateMo 558 Klassy Cafe
+        
+        https://templatemo.com/tm-558-klassy-cafe
+        
+    -->
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
+    
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
+    
     <link rel="stylesheet" href="assets/css/templatemo-klassy-cafe.css">
-
+    
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
-
+    
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
     </head>
     
     <body>
@@ -167,7 +168,26 @@ https://templatemo.com/tm-558-klassy-cafe
             
             </tbody>
         </table>
-        
+        <div id="order" class="container center" style="padding: 10px">
+            <button class="btn btn-dark">Order Now</button>
+        </div>
+        <div id="order-place" class="center" style="padding: 10px; display: none">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" placeholder="Name">
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="number" name="phone" placeholder="+XXX XXX XXX">
+            </div>
+            <div>
+                <label for="name">Adress:</label>
+                <input type="text" name="address" placeholder="Adress">
+            </div>
+            <div>
+                <input type="submit" value="Order Confirm" class="btn btn-dark">
+            </div>
+        </div>
     </div>
 </div>
 
@@ -229,6 +249,11 @@ https://templatemo.com/tm-558-klassy-cafe
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+    <script>
+        $('#order').click(function(){
+            $('#order-place').toggle();
+        });
+    </script>
     <script>
 
         $(function() {
