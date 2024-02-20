@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
 use App\Models\FoodChef;
 use App\Models\Cart;
+use App\Models\Order;
 class HomeController extends Controller
 {
     /**
@@ -39,6 +40,19 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function orderconfirm(Request $request){
+        foreach($request->foodname as $key => $foodname){
+            $order = new Order();
+            $order->foodname = $foodname;
+            $order->price = $request->price[$key];
+            $order->quantity = $request->quantity[$key];
+            $order->name = $request->name;
+            $order->phone = $request->phone;
+            $order->address = $request->address;
+            $order->save();
+        }
+        return redirect()->back();
+    }
     public function addtocart(Request $request){
         $id = Auth::id();
 

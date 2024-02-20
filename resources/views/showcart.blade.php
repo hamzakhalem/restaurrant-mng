@@ -141,18 +141,24 @@
               </tr>
             </thead>
             <tbody>
-               
+    <form action="{{ route('orderconfirm') }}" method="POST">
+        @csrf
+    
             @foreach($carts as $cart)
                  
                 <tr>
                     <td>
                         {{ $cart->title }}
+                        <input type="text" name="foodname[]" value="{{ $cart->title }}" hidden>
+                        
                     </td>
                     <td>
                         {{ $cart->price }}
+                        <input type="text" name="price[]" value="{{ $cart->price }}" hidden>
                     </td>
                     <td>
                         {{ $cart->quantity }}
+                        <input type="text" name="quantity[]" value="{{ $cart->quantity }}" hidden>
                     </td>
                   
                    
@@ -187,6 +193,8 @@
             <div>
                 <input type="submit" value="Order Confirm" class="btn btn-dark">
             </div>
+
+        </form>
         </div>
     </div>
 </div>
@@ -251,7 +259,7 @@
     <script src="assets/js/custom.js"></script>
     <script>
         $('#order').click(function(){
-            $('#order-place').toggle();
+            $('#order-place').show();
         });
     </script>
     <script>
