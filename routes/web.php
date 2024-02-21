@@ -33,6 +33,7 @@ Route::get('/updatechefpage/{id}', [AdminController::class,'updatechefpage'])->n
 Route::post('/updatechef', [AdminController::class,'updatechef'])->name('updatechef');
 
 Route::get('/reservatuionpage', [AdminController::class,'reservatuionpage'])->name('reservatuionpage');
+Route::get('/orders', [AdminController::class,'orders'])->name('orders');
 Route::post('/addfood', [AdminController::class,'addfood'])->name('addfood');
 Route::post('/updatefood', [AdminController::class,'updatefood'])->name('updatefood');
 

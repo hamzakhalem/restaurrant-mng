@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
 use App\Models\FoodChef;
+use App\Models\Order;
 class AdminController extends Controller
 {
     //
@@ -88,6 +89,11 @@ class AdminController extends Controller
     public function updatechefpage($id){
         $chef = FoodChef::find($id);
         return view('admin.updatechefpage', compact('chef'));
+    }
+
+    public function orders(){
+        $orders = Order::all();
+        return view('admin.orders', compact('orders'));
     }
 
     public function updatechef(Request $request){

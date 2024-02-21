@@ -175,7 +175,7 @@
             </tbody>
         </table>
         <div id="order" class="container center" style="padding: 10px">
-            <button class="btn btn-dark">Order Now</button>
+            <div class="btn btn-dark">Order Now</div>
         </div>
         <div id="order-place" class="center" style="padding: 10px; display: none">
             <div>
