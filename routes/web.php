@@ -34,6 +34,7 @@ Route::post('/updatechef', [AdminController::class,'updatechef'])->name('updatec
 
 Route::get('/reservatuionpage', [AdminController::class,'reservatuionpage'])->name('reservatuionpage');
 Route::get('/orders', [AdminController::class,'orders'])->name('orders');
+Route::get('/searchOrder', [AdminController::class,'searchOrder'])->name('searchOrder');
 Route::post('/addfood', [AdminController::class,'addfood'])->name('addfood');
 Route::post('/updatefood', [AdminController::class,'updatefood'])->name('updatefood');
 

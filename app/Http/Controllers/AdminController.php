@@ -96,6 +96,12 @@ class AdminController extends Controller
         return view('admin.orders', compact('orders'));
     }
 
+    public function searchOrder(Request $request){
+        $search = $request->search;
+        $orders = Order::where('foodname', "Like", '%$'.$search.'%')->get();
+        return view('admin.orders', compact('orders'));
+    }
+
     public function updatechef(Request $request){
         $chef = FoodChef::find($request->id);
         $imagechef = $request->image;

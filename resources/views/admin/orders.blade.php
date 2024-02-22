@@ -10,8 +10,13 @@
     <div class="container-scroller">
         
         @include('admin.navbar')
+      <div class="contianer">
+        <form method="get" action="{{ route("searchOrder") }}" >
+          @csrf
+          <input type="text" name="search">
+          <input type="submit" value="search" class="btn btn-dark">
+        </form>
         <div class="table-responsive m-auto mt-4 " style="width: 80%">
-            
             <table class="table table-dark">
                 <thead>
                   <tr>
@@ -45,6 +50,7 @@
             </table>
             
         </div>
+      </div>
 
 
     </div>
