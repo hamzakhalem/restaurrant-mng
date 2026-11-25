@@ -1,64 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Restaurant Management (Laravel)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A restaurant website with an admin panel, built with Laravel and Jetstream. Customers browse the menu, add dishes to a cart, order and book a table, and the admin manages the menu, chefs, orders, reservations and users.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Customer site**
+- Home page with the food menu and the chefs
+- Sign up and log in with Laravel Jetstream
+- Add dishes to a cart with a quantity, view the cart and remove items
+- Confirm an order with your name, phone and address
+- Book a table
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Admin panel**
+- Admins are sent to the admin panel after login (`usertype = 1`), customers to the site
+- **Food menu:** add dishes with a photo, edit and delete them
+- **Chefs:** add chefs with a photo and speciality, edit and delete them
+- **Orders:** list all orders and search them by dish or customer name
+- **Reservations:** list table bookings
+- **Users:** list and delete users
+- Built on the Corona dark Bootstrap admin template
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Built with
 
-## Learning Laravel
+- PHP 7.3+/8, Laravel 8
+- Laravel Jetstream with Livewire
+- Bootstrap (Corona admin template), Laravel Mix
+- MySQL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Run it locally
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+You need PHP 7.3 or 8.x, Composer, Node.js and MySQL.
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/hamzakhalem/restaurrant-mng.git
+cd restaurrant-mng
+composer install
+npm install
+npm run dev
+cp .env.example .env
+php artisan key:generate
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Set `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD` in `.env`, then:
 
-### Premium Partners
+```bash
+php artisan migrate
+php artisan serve
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Open http://127.0.0.1:8000 and create an account. To make it an admin, set `usertype` to `1` for that user in the `users` table.
 
-## Contributing
+On Windows, clone with `git clone -c core.longpaths=true ...`, because the admin template has very long file paths.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Project structure
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+app/Http/Controllers/HomeController.php    Site, cart, orders, login redirect
+app/Http/Controllers/AdminController.php   Menu, chefs, orders, reservations, users
+app/Models/                                Food, FoodChef, Cart, Order, Reservation
+resources/views/admin/                     Admin panel pages
+resources/views/                           Site pages (home, food menu, chefs, cart, reservations)
+```
